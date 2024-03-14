@@ -1,0 +1,7 @@
+- name: Start httpd service
+  hosts: web1
+  tasks:
+  - name: Restart Apache service
+    service:
+        name: httpd
+        state: restarted
