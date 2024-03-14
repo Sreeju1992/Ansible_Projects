@@ -1,0 +1,13 @@
+- name: Install multi-packages
+  hosts: web1
+  become: true
+  tasks:
+  - name: Install 'sudo' package
+    yum:
+      name: sudo
+      state: latest
+  - name: Downgrade vsftpd package
+    yum:
+      name: vsftpd-2.2.2
+      state: present
+      allow_downgrade: True    # Downgrade vsftpd package installed on node to 2.2.2 version
